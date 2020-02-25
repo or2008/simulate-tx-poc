@@ -15,5 +15,6 @@ function init() {
     });
 }
 
+init();
 setInterval(init, 15000);
 
