@@ -9,7 +9,7 @@
   "author": "Or Bachar",
   "license": "ISC",
   "dependencies": {
-    "ganache-cli": "^6.9.1",
+    "ganache-core": "^2.10.2",
     "web3": "^1.2.6"
   }
 }
