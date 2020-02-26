@@ -2,8 +2,8 @@ const ganache = require("ganache-core");
 const Web3 = require("web3");
 
 const web3 = new Web3();
-// const web3ws = new Web3(new Web3.providers.WebsocketProvider('wss://mainnet.infura.io/ws/v3/5493e1dfd6644fdc8afdbcc9b12bbc95'));
-const web3ws = new Web3(new Web3.providers.WebsocketProvider('ws://127.0.0.1:8546'));
+const web3ws = new Web3(new Web3.providers.WebsocketProvider('wss://mainnet.infura.io/ws/v3/5493e1dfd6644fdc8afdbcc9b12bbc95'));
+// const web3ws = new Web3(new Web3.providers.WebsocketProvider('ws://127.0.0.1:8546'));
 
 async function init() {
     web3.setProvider(ganache.provider({
