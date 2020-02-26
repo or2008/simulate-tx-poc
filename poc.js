@@ -19,8 +19,8 @@ async function init() {
 
 }
 
-function isContract(address) {
-    const code = web3.eth.getCode(address);
+async function isContract(address) {
+    const code = await web3.eth.getCode(address);
     console.log(`is ${address} Contract?`, code);
 
     return !code.startsWith('0x');
@@ -31,12 +31,11 @@ web3ws.eth.subscribe('pendingTransactions', async (error, txHash) => {
     // console.log('pendingTx', txHash);
 
     const tx = await web3.eth.getTransaction(txHash).catch();
-    console.log(tx);
-
     if (!tx || !tx.to) return;
     console.log('tx', tx);
 
-    if (!isContract(tx.to)) return;
+    const isSmartContract = await isContract(tx.to);
+    if (!isSmartContract) return;
 
     callSubsctibers(tx);
 });
